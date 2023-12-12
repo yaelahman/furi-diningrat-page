@@ -7,8 +7,8 @@ import { useOutletContext } from "react-router-dom"
 const Home = () => {
     return (
         <>
-            <img src={headerPng} alt="" className="absolute opacity-30 top-0 h-36 w-full ml-auto" />
-            <div className="container mx-auto mt-10 px-6 text-white min-h-[1000px]">
+            <img src={headerPng} alt="" className="absolute opacity-30 top-0 h-50 w-full ml-auto" />
+            <div className="container mx-auto md:mt-28 mt-20 px-6 text-white min-h-[1000px]">
                 <div className="mb-8">
                     <div className="mb-5">
                         <div className="relative flex">
