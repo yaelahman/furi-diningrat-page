@@ -6,9 +6,7 @@ const Footer = () => {
     return (
         <>
 
-            <div className="absolute bottom-0 bg-dark2 w-full p-3 py-5 text-white text-center">
-
-
+            <div className="bg-dark2 w-full p-3 py-5 text-white text-center">
                 <div className="flex justify-center pb-2">
                     <ul className="text-lg font-semibold transition-all duration-300 text-white flex">
                         <li className="cursor-pointer hover:text-purple px-2 pb-2">Blog</li>
