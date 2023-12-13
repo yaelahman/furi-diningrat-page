@@ -21,7 +21,7 @@ const Home = () => {
                 <div className="mb-8 relative">
                     <div className="mb-5">
                         <div className="relative flex">
-                            <h1 className="absolute top-[3px] left-[3px] font-poppins md:text-8xl text-5xl font-bold text-white tracking-tight text-left mb-2">FURI DININGRAT</h1>
+                            <h1 className="absolute top-[3px] left-[3px] font-poppins md:text-8xl text-5xl font-bold text-white tracking-tight text-left mb-2 whitespace-nowrap">FURI DININGRAT</h1>
                             <h1 className="font-poppins md:text-8xl text-5xl font-bold text-purple tracking-tight text-left mb-2">FURI DININGRAT</h1>
                         </div>
                         <p className="font-semibold text-2xl tracking-widest my-10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, iure!</p>
@@ -62,7 +62,7 @@ const Home = () => {
                 </div>
                 <div id="stake" className="my-48 text-white">
                     <h3 className="text-center md:text-5xl text-3xl font-semibold mb-14">Stake</h3>
-                    <div className="grid lg:grid-cols-6 md:grid-cols-4 grid-cols-3 gap-5">
+                    <div className="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-5">
                         {stakeData.map((row, index) => {
                             return (
                                 <StakeCard key={index} title={row.title} image={row.image} link={row.link} />

@@ -25,7 +25,7 @@ const Layout = () => {
     }, []);
     return (
         <>
-            <div className="relative">
+            <div className="relative overflow-hidden">
                 <Navbar scroll={y} />
                 <Outlet context={[y, setY]} />
                 <Footer />
