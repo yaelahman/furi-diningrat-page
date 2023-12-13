@@ -5,6 +5,8 @@ import { faCheckSquare, faPaperPlane } from "@fortawesome/free-solid-svg-icons"
 import { faDiscord, faTwitter } from "@fortawesome/free-brands-svg-icons"
 import { Link, useOutletContext } from "react-router-dom"
 import svg1 from "../assets/svg/1.svg"
+import svg2 from "../assets/svg/2.svg"
+import svg3 from "../assets/svg/3.svg"
 import { useRef } from "react"
 
 import stakeJson from "../data/stake.json"
@@ -22,7 +24,7 @@ const Home = () => {
                     <div className="mb-5">
                         <div className="relative flex">
                             <h1 className="absolute top-[3px] left-[3px] font-poppins md:text-8xl text-5xl font-bold text-white tracking-tight text-left mb-2 whitespace-nowrap">FURI DININGRAT</h1>
-                            <h1 className="font-poppins md:text-8xl text-5xl font-bold text-purple tracking-tight text-left mb-2">FURI DININGRAT</h1>
+                            <h1 className="font-poppins md:text-8xl text-5xl font-bold text-purple tracking-tight text-left mb-2 whitespace-nowrap">FURI DININGRAT</h1>
                         </div>
                         <p className="font-semibold text-2xl tracking-widest my-10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, iure!</p>
                     </div>
@@ -40,9 +42,9 @@ const Home = () => {
                         <p className="text-lg">A blockchain development firm, lab, and validator, that builds software to supercharge the growth and security of the Interchain.</p>
                     </div>
                     <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
-                        <ExpertiseCard />
-                        <ExpertiseCard />
-                        <ExpertiseCard />
+                        <ExpertiseCard image={svg1} title="FURI LAB 1" text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, perferendis?" />
+                        <ExpertiseCard image={svg2} title="FURI LAB 2" text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, perferendis?" />
+                        <ExpertiseCard image={svg3} title="FURI LAB 3" text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, perferendis?" />
                     </div>
                 </div>
                 <div id="blog" className="my-48 text-white">
@@ -75,12 +77,12 @@ const Home = () => {
     )
 }
 
-const ExpertiseCard = () => {
+const ExpertiseCard = ({ ...data }) => {
     return (
         <div className="backdrop-filter backdrop-blur-lg bg-dark2 bg-opacity-10 text-center border border-dark2 rounded-3xl py-5 px-5">
-            <img src={svg1} className="text-purple fill-purple mx-auto py-5" alt="" />
-            <h6 className="text-2xl font-semibold">FURI LAB</h6>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, perferendis?</p>
+            <img src={data.image} className="text-purple fill-purple mx-auto py-5 h-32" alt="" />
+            <h6 className="text-2xl font-semibold">{data.title}</h6>
+            <p>{data.text}</p>
         </div>
     )
 }
