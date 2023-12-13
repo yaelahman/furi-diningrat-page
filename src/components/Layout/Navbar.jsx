@@ -2,6 +2,7 @@ import { faBars, faClose, faPaperPlane, faPlane } from "@fortawesome/free-solid-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useState } from "react"
 import { faDiscord, faTelegram, faTwitter } from "@fortawesome/free-brands-svg-icons"
+import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy } from 'react-scroll';
 
 const Navbar = ({ scroll }) => {
     const [nav, setNav] = useState(false)
@@ -10,11 +11,39 @@ const Navbar = ({ scroll }) => {
             <div className={"transition-all duration-300 border-b py-5 sticky top-0 z-50 backdrop-filter backdrop-blur-lg " + (scroll > 124 ? 'bg-dark mx-2 md:mx-8 top-2 border rounded-full border-gray-500 py-[7px]' : ' bg-dark bg-opacity-20 border-gray-500')}>
                 <div className="container mx-auto">
                     <div className="flex text-white justify-between">
-                        <h6 className={"my-auto lg:text-2xl text-xl font-semibold font-poppi rounded-full px-5 py-1 tracking-tight " + (scroll > 124 ? 'text-purple' : 'text-white')}>FURI DININGRAT</h6>
+                        <Link
+                            to="home"
+                            spy={true}
+                            smooth={true}
+                            offset={-200}
+                            duration={500}
+                        >
+                            <h6 className={"my-auto lg:text-2xl text-xl font-semibold font-poppi rounded-full px-5 py-1 tracking-tight cursor-pointer " + (scroll > 124 ? 'text-purple' : 'text-white')}>FURI DININGRAT</h6>
+                        </Link>
                         <div className="hidden lg:flex gap-6 px-2">
                             <ul className="flex gap-4 my-auto text-sm font-semibold">
-                                <li className="transition-all duration-300 cursor-pointer hover:text-purple px-2">Blog</li>
-                                <li className="transition-all duration-300 cursor-pointer hover:text-purple px-2">Stake</li>
+                                <Link
+                                    to="blog"
+                                    spy={true}
+                                    smooth={true}
+                                    offset={-100}
+                                    duration={500}
+                                >
+                                    <li className="transition-all duration-300 cursor-pointer hover:text-purple px-2">
+                                        Blog
+                                    </li>
+                                </Link>
+                                <Link
+                                    to="stake"
+                                    spy={true}
+                                    smooth={true}
+                                    offset={-100}
+                                    duration={500}
+                                >
+                                    <li className="transition-all duration-300 cursor-pointer hover:text-purple px-2">
+                                        Stake
+                                    </li>
+                                </Link>
                                 <li className="transition-all duration-300 cursor-pointer hover:text-purple px-2">Jobs</li>
                             </ul>
                             <button className="bg-purple rounded-full px-4 py-2 hover:bg-purple/90">
@@ -35,8 +64,24 @@ const Navbar = ({ scroll }) => {
                 </div>
                 <div className="flex justify-end p-5 pb-0">
                     <ul className="text-lg font-semibold transition-all duration-300 text-white">
-                        <li className="cursor-pointer hover:text-purple px-2 pb-2">Blog</li>
-                        <li className="cursor-pointer hover:text-purple px-2 pb-2">Stake</li>
+                        <Link
+                            to="blog"
+                            spy={true}
+                            smooth={true}
+                            offset={-100}
+                            duration={500}
+                        >
+                            <li className="cursor-pointer hover:text-purple px-2 pb-2">Blog</li>
+                        </Link>
+                        <Link
+                            to="stake"
+                            spy={true}
+                            smooth={true}
+                            offset={-100}
+                            duration={500}
+                        >
+                            <li className="cursor-pointer hover:text-purple px-2 pb-2">Stake</li>
+                        </Link>
                         <li className="cursor-pointer hover:text-purple px-2 pb-2">Jobs</li>
                     </ul>
                 </div>
