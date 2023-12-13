@@ -2,38 +2,31 @@ import { faBars, faClose, faPaperPlane, faPlane } from "@fortawesome/free-solid-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useState } from "react"
 import { faDiscord, faTelegram, faTwitter } from "@fortawesome/free-brands-svg-icons"
-import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy } from 'react-scroll';
+import { Link as ScrollLink } from 'react-scroll';
+import { Link } from "react-router-dom";
 
 const Navbar = ({ scroll }) => {
     const [nav, setNav] = useState(false)
     return (
         <>
-            <div className={"transition-all duration-300 border-b py-5 sticky top-0 z-50 backdrop-filter backdrop-blur-lg " + (scroll > 124 ? 'bg-dark mx-2 md:mx-8 top-2 border rounded-full border-gray-500 py-[7px]' : ' bg-dark bg-opacity-20 border-gray-500')}>
+            <div className={"transition-all duration-300 border-b py-5 sticky top-0 z-50 backdrop-filter backdrop-blur-lg " + (scroll > 124 ? 'bg-dark border-transparent' : ' bg-dark bg-opacity-20 border-gray-500')}>
                 <div className="container mx-auto">
                     <div className="flex text-white justify-between">
                         <Link
-                            to="home"
-                            spy={true}
-                            smooth={true}
-                            offset={-200}
-                            duration={500}
+                            to="/"
                         >
                             <h6 className={"my-auto lg:text-2xl text-xl font-semibold font-poppi rounded-full px-5 py-1 tracking-tight cursor-pointer " + (scroll > 124 ? 'text-purple' : 'text-white')}>FURI DININGRAT</h6>
                         </Link>
                         <div className="hidden lg:flex gap-6 px-2">
                             <ul className="flex gap-4 my-auto text-sm font-semibold">
                                 <Link
-                                    to="blog"
-                                    spy={true}
-                                    smooth={true}
-                                    offset={-100}
-                                    duration={500}
+                                    to="/blog"
                                 >
                                     <li className="transition-all duration-300 cursor-pointer hover:text-purple px-2">
                                         Blog
                                     </li>
                                 </Link>
-                                <Link
+                                <ScrollLink
                                     to="stake"
                                     spy={true}
                                     smooth={true}
@@ -43,12 +36,16 @@ const Navbar = ({ scroll }) => {
                                     <li className="transition-all duration-300 cursor-pointer hover:text-purple px-2">
                                         Stake
                                     </li>
+                                </ScrollLink>
+                                <Link to="/job">
+                                    <li className="transition-all duration-300 cursor-pointer hover:text-purple px-2">Jobs</li>
                                 </Link>
-                                <li className="transition-all duration-300 cursor-pointer hover:text-purple px-2">Jobs</li>
                             </ul>
-                            <button className="bg-purple rounded-full px-4 py-2 hover:bg-purple/90">
-                                Contact Us
-                            </button>
+                            <Link to="/contact">
+                                <button className="bg-purple rounded-full px-4 py-2 hover:bg-purple/90">
+                                    Contact Us
+                                </button>
+                            </Link>
                         </div>
                         <button className="hover:text-purple text-2xl lg:hidden px-5" onClick={() => setNav(true)}>
                             <FontAwesomeIcon icon={faBars} />
@@ -65,15 +62,11 @@ const Navbar = ({ scroll }) => {
                 <div className="flex justify-end p-5 pb-0">
                     <ul className="text-lg font-semibold transition-all duration-300 text-white">
                         <Link
-                            to="blog"
-                            spy={true}
-                            smooth={true}
-                            offset={-100}
-                            duration={500}
+                            to="/blog"
                         >
                             <li className="cursor-pointer hover:text-purple px-2 pb-2">Blog</li>
                         </Link>
-                        <Link
+                        <ScrollLink
                             to="stake"
                             spy={true}
                             smooth={true}
@@ -81,14 +74,18 @@ const Navbar = ({ scroll }) => {
                             duration={500}
                         >
                             <li className="cursor-pointer hover:text-purple px-2 pb-2">Stake</li>
+                        </ScrollLink>
+                        <Link to="/job">
+                            <li className="cursor-pointer hover:text-purple px-2 pb-2">Jobs</li>
                         </Link>
-                        <li className="cursor-pointer hover:text-purple px-2 pb-2">Jobs</li>
                     </ul>
                 </div>
                 <div className="flex justify-end p-5 pt-0">
-                    <button className="bg-purple rounded-full px-4 py-2 hover:bg-purple/90 text-white">
-                        Contact Us
-                    </button>
+                    <Link to="/contact">
+                        <button className="bg-purple rounded-full px-4 py-2 hover:bg-purple/90 text-white">
+                            Contact Us
+                        </button>
+                    </Link>
                 </div>
                 <div className="absolute bottom-0 bg-dark2 w-full p-3 text-white text-center">
 
