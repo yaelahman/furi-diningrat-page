@@ -8,9 +8,9 @@ const Contact = () => {
     return (
         <>
             <div className="container mx-auto md:my-20 my-10 md:px-48 px-3 text-white">
-                <h1 className="md:text-5xl text-3xl font-semibold my-3">Contact Us</h1>
                 <form onSubmit={handleSubmit}>
                     <div className="md:px-20">
+                        <h1 className="md:text-5xl text-3xl font-semibold my-3">Contact Us</h1>
                         <div className="mb-5">
                             <label htmlFor="work" className="block">How Can We Work Together?</label>
                             <input type="text" className="bg-dark border border-dark2 text-white text-sm rounded-lg focus:ring-purple focus:border-purple block w-full p-2.5 focus:outline-none" placeholder="Hows?" required />

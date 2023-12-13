@@ -35,7 +35,7 @@ const Home = () => {
                         <FontAwesomeIcon icon={faDiscord} className="transition-all duration-300 cursor-pointer bg-white text-dark hover:bg-dark hover:text-white text-3xl rounded-full border p-[12px]" />
                     </div>
                 </div>
-                <div className="my-48 text-white relative">
+                <div className="mt-48 mb-24 text-white relative">
                     <img src={header2Png} alt="" className="absolute opacity-30 right-[-60px] h-50 w-72 ml-auto" />
                     <div className="text-center mb-14 md:px-52 px-3">
                         <h3 className="md:text-5xl text-3xl font-semibold ">Our Expertise</h3>
@@ -47,7 +47,7 @@ const Home = () => {
                         <ExpertiseCard image={svg3} title="FURI LAB 3" text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, perferendis?" />
                     </div>
                 </div>
-                <div id="blog" className="my-48 text-white">
+                <div id="blog" className="mb-24 text-white">
                     <h3 className="text-center md:text-5xl text-3xl font-semibold mb-14">Blog</h3>
                     <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
                         {blogData.map((row, index) => {
@@ -62,7 +62,7 @@ const Home = () => {
                         </Link>
                     </div>
                 </div>
-                <div id="stake" className="my-48 text-white">
+                <div id="stake" className="mb-24 text-white">
                     <h3 className="text-center md:text-5xl text-3xl font-semibold mb-14">Stake</h3>
                     <div className="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-5">
                         {stakeData.map((row, index) => {
