@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import headerPng from "../assets/img/header.png"
 import header2Png from "../assets/img/header2.png"
+import header3Png from "../assets/img/header3.png"
 import { faCheckSquare, faPaperPlane } from "@fortawesome/free-solid-svg-icons"
 import { faDiscord, faTwitter } from "@fortawesome/free-brands-svg-icons"
 import { Link, useOutletContext } from "react-router-dom"
@@ -62,7 +63,8 @@ const Home = () => {
                         </Link>
                     </div>
                 </div>
-                <div id="stake" className="mb-24 text-white">
+                <div id="stake" className="mb-24 text-white relative">
+                    <img src={header3Png} alt="" className="absolute opacity-30 left-[-60px] h-50 w-80 ml-auto" />
                     <h3 className="text-center md:text-5xl text-3xl font-semibold mb-14">Stake</h3>
                     <div className="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-5">
                         {stakeData.map((row, index) => {
@@ -108,7 +110,7 @@ const StakeCard = ({ ...data }) => {
     const [y, setY] = useOutletContext()
 
     return (
-        <div key={data.key} className={"transition-all duration-300 mb-3 text-center border rounded-tr-2xl rounded-bl-2xl border-gray-700 " + (y > 1400 ? 'scale-100' : 'scale-0')}>
+        <div key={data.key} className={"transition-all duration-300 backdrop-filter backdrop-blur-lg bg-dark2 bg-opacity-10 mb-3 text-center border rounded-tr-2xl rounded-bl-2xl border-gray-700 " + (y > 1400 ? 'scale-100' : 'scale-0')}>
             <img src={data.image} className="mx-auto py-5" alt="" />
             <div className="bg-dark2 rounded-bl-2xl pb-5 pt-2 border-t border-gray-700">
                 <h6 className="text-lg mb-1">{data.title}</h6>
