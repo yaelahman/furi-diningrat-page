@@ -63,6 +63,7 @@ const Navbar = ({ scroll }) => {
                     <ul className="text-lg font-semibold transition-all duration-300 text-white">
                         <Link
                             to="/blog"
+                            onClick={() => setNav(false)}
                         >
                             <li className="cursor-pointer hover:text-purple px-2 pb-2">Blog</li>
                         </Link>
@@ -72,16 +73,17 @@ const Navbar = ({ scroll }) => {
                             smooth={true}
                             offset={-100}
                             duration={500}
+                            onClick={() => setNav(false)}
                         >
                             <li className="cursor-pointer hover:text-purple px-2 pb-2">Stake</li>
                         </ScrollLink>
-                        <Link to="/job">
+                        <Link to="/job" onClick={() => setNav(false)}>
                             <li className="cursor-pointer hover:text-purple px-2 pb-2">Jobs</li>
                         </Link>
                     </ul>
                 </div>
                 <div className="flex justify-end p-5 pt-0">
-                    <Link to="/contact">
+                    <Link to="/contact" onClick={() => setNav(false)}>
                         <button className="bg-purple rounded-full px-4 py-2 hover:bg-purple/90 text-white">
                             Contact Us
                         </button>
