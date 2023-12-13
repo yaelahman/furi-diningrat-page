@@ -53,7 +53,7 @@ const Navbar = ({ scroll }) => {
                     </div>
                 </div>
             </div >
-            <div className={"transition-all duration-150 ease-in-out fixed z-50 bg-dark h-[100vh] w-[300px] top-0 shadow-sm shadow-white " + (nav ? 'right-0' : 'right-[-300px]')}>
+            <div className={"transition-all duration-150 ease-in-out fixed z-50 bg-dark h-[100%] w-[300px] top-0 shadow-sm shadow-white " + (nav ? 'right-0' : 'right-[-300px]')}>
                 <div className="flex justify-end p-5">
                     <button className="hover:text-purple text-white text-2xl" onClick={() => setNav(false)}>
                         <FontAwesomeIcon icon={faClose} />
