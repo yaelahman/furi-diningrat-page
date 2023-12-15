@@ -10,7 +10,7 @@ const Blog = () => {
                     <h1 className="md:text-5xl text-3xl font-semibold my-3">Latest News</h1>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                         <div className="transition-all duration-300  h-52 rounded-lg border border-dark2 mb-2">
-                            {/* <img src="" className="h-50 w-50" alt="" /> */}
+                            <img src={blogs[0].image} className="h-50 w-50" alt="" />
                         </div>
                         <div>
                             <h6 className="text-2xl text-purple font-semibold mb-3">{blogs[0].title}</h6>
