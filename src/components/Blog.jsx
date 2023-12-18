@@ -6,25 +6,27 @@ const Blog = () => {
     return (
         <>
             <div className="container mx-auto md:my-20 my-10 md:px-48 px-3 text-white">
-                <div className="mb-20">
-                    <h1 className="md:text-5xl text-3xl font-semibold my-3">Latest News</h1>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                        <div className="transition-all duration-300  h-52 rounded-lg border border-dark2 mb-2">
-                            <img src={blogs[0].image} className="h-50 w-50" alt="" />
-                        </div>
-                        <div>
-                            <h6 className="text-2xl text-purple font-semibold mb-3">{blogs[0].title}</h6>
-                            <p className="text-sm">{blogs[0].short_text}</p>
-                            <div className="flex my-5 text-neutral-300">
-                                <span className="border-r border-neutral-300 pr-3">{blogs[0].created_at}</span>
-                                <span className="pl-3">{blogs[0].created_by}</span>
+                {blogs.length > 0 && (
+                    <div className="mb-20">
+                        <h1 className="md:text-5xl text-3xl font-semibold my-3">Latest News</h1>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div className="transition-all duration-300  h-52 rounded-lg border border-dark2 mb-2">
+                                <img src={blogs[0].image} className="h-50 w-50" alt="" />
                             </div>
-                            <Link to={"/blog/" + blogs[0].slug}>
-                                <button className="transition-all duration-300 bg-dark hover:bg-purple/20 hover:border-purple/30 hover:text-purple border px-5 py-2 rounded-full">Show More</button>
-                            </Link>
+                            <div>
+                                <h6 className="text-2xl text-purple font-semibold mb-3">{blogs[0].title}</h6>
+                                <div className="text-sm" dangerouslySetInnerHTML={{ __html: blogs[0].short_text }} ></div>
+                                <div className="flex my-5 text-neutral-300">
+                                    <span className="border-r border-neutral-300 pr-3">{blogs[0].created_at}</span>
+                                    <span className="pl-3">{blogs[0].created_by}</span>
+                                </div>
+                                <Link to={"/blog/" + blogs[0].slug}>
+                                    <button className="transition-all duration-300 bg-dark hover:bg-purple/20 hover:border-purple/30 hover:text-purple border px-5 py-2 rounded-full">Show More</button>
+                                </Link>
+                            </div>
                         </div>
                     </div>
-                </div>
+                )}
                 <div className="mb-20">
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-5">
                         {blogs.map((row, index) => {

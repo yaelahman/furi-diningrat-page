@@ -19,8 +19,7 @@ const BlogDetail = () => {
                     <span className="tracking-tighter pl-3">{blog?.created_by}</span>
                 </div>
                 <img src={blog?.image} alt="" />
-                <div className="my-4">
-                    <p>{blog?.text}</p>
+                <div className="my-4" dangerouslySetInnerHTML={{ __html: blog?.text }}>
                 </div>
             </div>
         </>
