@@ -70,10 +70,11 @@ const BlogCreate = () => {
         e.preventDefault()
         let slug = title.replaceAll(' ', '-').toLowerCase()
         let data = blogs.filter((row) => row.slug != slug)
+
         let add = {
             "title": title,
-            "text": textToHTML(text),
-            "short_text": textToHTML(shortText),
+            "text": textToHTML(text.split('\n').join('<br>')),
+            "short_text": textToHTML(shortText.split('\n').join('<br>')),
             "slug": slug,
             "image": image,
             "created_at": createdAt,
@@ -95,7 +96,7 @@ const BlogCreate = () => {
     }
 
     const handleEdit = (slug) => {
-        let data = JSON.parse(result).filter((row) => row.slug == slug)[0]
+        let data = blogs.filter((row) => row.slug == slug)[0]
 
         setTitle(data.title)
         setImage(data.image)

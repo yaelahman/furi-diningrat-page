@@ -46,10 +46,10 @@ const Home = () => {
                         <FontAwesomeIcon icon={faDiscord} className="transition-all duration-300 cursor-pointer bg-white text-dark hover:bg-dark hover:text-white lg:text-3xl md:text-2xl text-lg rounded-full border lg:p-[12px] md:p-[10px] p-[8px]" />
                     </div>
                 </div>
-                <div className="mt-48 mb-24 text-white relative">
+                <div className="mt-24 mb-24 text-white relative">
                     <img src={header2Png} alt="" className="absolute opacity-30 right-[-60px] h-50 w-72 ml-auto" />
                     <div className="text-center mb-14 md:px-52 px-3">
-                        <h3 className="md:text-5xl text-3xl font-semibold ">Our Expertise</h3>
+                        <h3 className="md:text-5xl text-3xl font-semibold mb-24">Our Expertise</h3>
                         <p className="text-lg">A blockchain development firm, lab, and validator, that builds software to supercharge the growth and security of the Interchain.</p>
                     </div>
                     <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
