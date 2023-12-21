@@ -1,7 +1,8 @@
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import blogsData from "../data/blog.json"
+import { getBlogs, writeBlogs } from "../data/blogs"
 
 const BlogCreate = () => {
     const [title, setTitle] = useState(null)
@@ -11,7 +12,24 @@ const BlogCreate = () => {
     const [text, setText] = useState(null)
     const [shortText, setShortText] = useState(null)
     const [result, setResult] = useState(JSON.stringify(blogsData))
-    const [blogs, setBlogs] = useState(blogsData)
+
+    const [blogs, setBlogs] = useState([])
+
+    const getBlog = async () => {
+        let response = await getBlogs()
+        response = response.data
+        setBlogs(response)
+    }
+    useEffect(() => {
+        getBlog()
+    }, [])
+
+    const writeBlog = async (data) => {
+
+        let response = await writeBlogs({
+            blogs: JSON.stringify(data)
+        })
+    }
 
     const textToHTML = (text) => {
         // Pisahkan teks menjadi paragraf
@@ -70,7 +88,10 @@ const BlogCreate = () => {
             add,
             ...data
         ])
-
+        writeBlog([
+            add,
+            ...data
+        ])
     }
 
     const handleEdit = (slug) => {
@@ -88,6 +109,7 @@ const BlogCreate = () => {
         let data = blogs.filter((row) => row.slug != slug)
         setResult(JSON.stringify(data))
         setBlogs(data)
+        writeBlog(data)
     }
 
     return (

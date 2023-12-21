@@ -1,14 +1,24 @@
 import { useLocation, useParams } from "react-router-dom"
 
-import blogs from "../data/blog.json"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
+import { getBlogs } from "../data/blogs"
 
 const BlogDetail = () => {
     const location = useLocation()
     const params = useParams()
 
-    let blog = blogs.filter((row) => row.slug == params.slug)
-    if (blog.length > 0) blog = blog[0]
+    const [blog, setBlogs] = useState([])
+
+    const getBlog = async () => {
+        let response = await getBlogs()
+        response = response.data.filter((row) => row.slug == params.slug)
+        if (response.length > 0) response = response[0]
+        setBlogs(response)
+    }
+    useEffect(() => {
+        getBlog()
+    }, [])
+
 
     return (
         <>

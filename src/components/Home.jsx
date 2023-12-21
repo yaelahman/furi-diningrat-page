@@ -8,14 +8,24 @@ import { Link, useOutletContext } from "react-router-dom"
 import svg1 from "../assets/svg/1.svg"
 import svg2 from "../assets/svg/2.svg"
 import svg3 from "../assets/svg/3.svg"
-import { useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 import stakeJson from "../data/stake.json"
 import blogJson from "../data/blog.json"
+import { getBlogs } from "../data/blogs"
 
 const Home = () => {
     let stakeData = stakeJson
-    let blogData = blogJson.filter((row, index) => index < 3)
+    const [blogs, setBlogs] = useState([])
+
+    const getBlog = async () => {
+
+        let response = await getBlogs()
+        setBlogs(response.data.filter((row, index) => index < 3))
+    }
+    useEffect(() => {
+        getBlog()
+    }, [])
 
     return (
         <>
@@ -51,7 +61,7 @@ const Home = () => {
                 <div id="blog" className="mb-24 text-white">
                     <h3 className="text-center md:text-5xl text-3xl font-semibold mb-14">Blog</h3>
                     <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
-                        {blogData.map((row, index) => {
+                        {blogs.map((row, index) => {
                             return (
                                 <BlogCard key={index} blog={row} />
                             )

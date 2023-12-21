@@ -1,7 +1,19 @@
 import { Link } from "react-router-dom"
-import blogs from "../data/blog.json"
+import { useEffect, useState } from "react"
+import { getBlogs } from "../data/blogs"
 
 const Blog = () => {
+
+    const [blogs, setBlogs] = useState([])
+
+    const getBlog = async () => {
+
+        let response = await getBlogs()
+        setBlogs(response.data)
+    }
+    useEffect(() => {
+        getBlog()
+    }, [])
 
     return (
         <>
